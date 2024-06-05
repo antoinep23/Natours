@@ -1,3 +1,5 @@
+import { showAlert } from './alert.js';
+
 const login = async (email, password) => {
   try {
     const res = await axios({
@@ -8,9 +10,15 @@ const login = async (email, password) => {
         password,
       },
     });
-    console.log(res);
+
+    if (res.data.status === 'success') {
+      showAlert('success', 'Logged in successfully!');
+      window.setTimeout(() => {
+        location.assign('/');
+      }, 1500);
+    }
   } catch (err) {
-    console.log(err.response.data);
+    showAlert('error', err.response.data.message);
   }
 };
 
