@@ -1,26 +1,26 @@
-// import '@babel/polyfill';
-// import { displayMap } from './leaflet.js';
-// import { login } from './login.js';
+// IMPORT POLYFILLS
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
-// // axios deprecated
+// IMPORT SCRIPTS
+import { login } from './login.js';
+import { displayMap } from './leaflet.js';
 
-// // DOM ELEMENTS
-// const mapBox = document.getElementById('map');
-// const loginForm = document.querySelector('.form');
+// DOM ELEMENTS
+const map = document.getElementById('map');
+const loginForm = document.querySelector('.form');
 
-// // VALUES
-// const email = document.getElementById('email').value;
-// const password = document.getElementById('password').value;
+// DELEGATION
+if (map) {
+  const locations = JSON.parse(map.dataset.locations);
+  displayMap(locations);
+}
 
-// // DELEGATION
-// if (mapBox) {
-//   const locations = JSON.parse(mapBox.dataset.locations);
-//   displayMap(locations);
-// }
-
-// if (loginForm) {
-//   loginForm.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     login(email, password);
-//   });
-// }
+if (loginForm) {
+  loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    login(email, password);
+  });
+}

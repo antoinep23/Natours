@@ -36,6 +36,7 @@ app.use(
           "'self'",
           'https://unpkg.com',
           'https://cdnjs.cloudflare.com',
+          "'unsafe-eval'",
         ],
         'img-src': ["'self'", 'data:', 'https://*.tile.openstreetmap.org'],
         'connect-src': ["'self'", 'http://127.0.0.1:8000'],
