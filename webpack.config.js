@@ -5,10 +5,10 @@ module.exports = {
     'core-js/stable',
     'regenerator-runtime/runtime',
     './public/js/index.js',
-  ], // Ajoutez core-js et regenerator-runtime ici
+  ],
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public/js/dist'), // Dossier de sortie mis à jour
+    path: path.resolve(__dirname, 'public/js/dist'),
   },
   module: {
     rules: [
