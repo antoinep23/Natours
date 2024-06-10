@@ -37,10 +37,17 @@ app.use(
           "'self'",
           'https://unpkg.com',
           'https://cdnjs.cloudflare.com',
+          'https://js.stripe.com',
           "'unsafe-eval'",
         ],
         'img-src': ["'self'", 'data:', 'https://*.tile.openstreetmap.org'],
-        'connect-src': ["'self'", 'http://127.0.0.1:8000'],
+        'connect-src': [
+          "'self'",
+          'http://127.0.0.1:8000',
+          'https://js.stripe.com',
+        ],
+        'frame-src': ["'self'", 'https://js.stripe.com'],
+        'worker-src': ["'self'", 'https://js.stripe.com'],
       },
     },
   })
