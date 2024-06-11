@@ -104,7 +104,7 @@ app.use(
 );
 
 // Compress txt res to client
-app.use(compression());
+app.use(compression()); // Test on gzip (Google)
 
 // Test middleware
 app.use((req, res, next) => {
