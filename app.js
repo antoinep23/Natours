@@ -55,13 +55,13 @@ app.use(
 );
 
 // Enable CORS for req all routes
-app.use(
-  cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: '*',
+//     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//   })
+// );
 
 // Make Express trust the first proxy
 app.set('trust proxy', 1);
