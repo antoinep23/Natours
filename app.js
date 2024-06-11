@@ -55,13 +55,14 @@ app.use(
 );
 
 // Enable CORS for req all routes
-// app.use(
-//   cors({
-//     origin: '*',
-//     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-//     allowedHeaders: ['Content-Type', 'Authorization'],
-//   })
-// );
+app.use(
+  cors({
+    origin: 'https://natours-l3nu.onrender.com',
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
+  })
+);
 
 // Make Express trust the first proxy
 app.set('trust proxy', 1);
