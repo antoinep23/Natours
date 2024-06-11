@@ -20,6 +20,9 @@ const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
+// Make Express trust proxy
+app.enable('trust proxy');
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -60,12 +63,8 @@ app.use(
     origin: 'https://natours-l3nu.onrender.com',
     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
   })
 );
-
-// Make Express trust the first proxy
-app.set('trust proxy', 1);
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
