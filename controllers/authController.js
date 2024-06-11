@@ -19,8 +19,9 @@ const createSendToken = (user, statusCode, res) => {
       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
     ),
     httpOnly: true,
-    sameSite: 'None',
+    sameSite: 'strict',
     secure: process.env.NODE_ENV === 'production',
+    domain: 'https://natours-l3nu.onrender.com',
   };
   if (process.env.NODE_ENV === 'production') cookieOptions.secure = true;
 
