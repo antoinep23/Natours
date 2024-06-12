@@ -16,6 +16,7 @@ const userRouter = require('./routes/userRoutes');
 const tourRouter = require('./routes/tourRoutes');
 const reviewRouter = require('./routes/reviewRoutes');
 const bookingRouter = require('./routes/bookingRoutes');
+const bookingController = require('./controllers/bookingController');
 const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
@@ -84,6 +85,13 @@ app.use('/api', limiter);
 
 // // Read data from HTML FORM REQ (not used in that project)
 // app.use(express.urlencoded({ extended: true, limit: '10kb' }));
+
+// Checkout Stripe (format stream, converted to JSON thank to the line below)
+app.post(
+  '/webhook-checkout',
+  express.raw({ type: 'application/json' }),
+  bookingController.webhookCheckout
+);
 
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: '10kb' }));
