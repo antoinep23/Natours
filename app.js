@@ -58,13 +58,15 @@ app.use(
 );
 
 // Enable CORS for req all routes
-app.use(
-  cors({
-    origin: 'https://natours-l3nu.onrender.com',
-    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-  })
-);
+// app.use(
+//   cors({
+//     origin: 'https://natours-l3nu.onrender.com',
+//     methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+//   })
+// );
+app.use(cors());
+app.options('*', cors()); // Authorizing non simple req
 
 // Development logging
 if (process.env.NODE_ENV === 'development') {
