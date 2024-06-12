@@ -10,7 +10,7 @@ html
             script(src='/js/dist/bundle.js' defer)
             title Natours | #{title}
 
-    body 
+    body(data-alert=`${alert ? alert : ''}`) 
         // HEADER
         include _header
 

@@ -7,6 +7,7 @@ import { login, logout } from './login.js';
 import { updateSettings } from './updateSettings.js';
 import { displayMap } from './leaflet.js';
 import { bookTour } from './stripe';
+import { showAlert } from './alert';
 
 // DOM ELEMENTS
 const map = document.getElementById('map');
@@ -72,3 +73,6 @@ if (bookBtn) {
     bookTour(tourId);
   });
 }
+
+const alertMessage = document.querySelector('body').dataset.alert;
+if (alertMessage) showAlert('success', alertMessage, 20);
